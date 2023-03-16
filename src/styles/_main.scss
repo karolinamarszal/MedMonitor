@@ -1,0 +1,60 @@
+@import "./resets", "./variables", "utilities";
+
+//general style
+
+body {
+  font-size: var(--fs-body);
+  font-family: var(--ff-body);
+  color: var(--clr-neutral-900);
+  background: var(--clr-neutral-200);
+  font-size: var(--fs-600);
+  font-weight: var(--fw-regular);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--ff-primary);
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--clr-neutral-900);
+}
+
+
+
+//navbar 
+
+.logo {
+  width: 3.7rem;
+}
+
+.navbar {
+  height: var(--size-800);
+  background-color: var(--clr-white);
+  padding: 0 var(--size-600);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--lightShadow);
+}
+
+.nav-links a{
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    color: var(--clr-primary);
+  }
+}
+
+
+
