@@ -1,4 +1,9 @@
-@import "./resets", "./variables", "utilities";
+@use "./resets";
+@use "./variables";
+@use "utilities";
+@use "./navbar";
+@use "./modal";
+@use "./form";
 
 //general style
 
@@ -29,32 +34,6 @@ a {
   color: var(--clr-neutral-900);
 }
 
-
-
-//navbar 
-
-.logo {
-  width: 3.7rem;
-}
-
-.navbar {
-  height: var(--size-800);
-  background-color: var(--clr-white);
-  padding: 0 var(--size-600);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: var(--lightShadow);
-}
-
-.nav-links a{
-  display: flex;
-  align-items: center;
-
-  &:hover {
-    color: var(--clr-primary);
-  }
-}
 
 
 
