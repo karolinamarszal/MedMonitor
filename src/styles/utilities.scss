@@ -1,0 +1,62 @@
+@import "./variables";
+
+.container {
+  --max-width: 1400px;
+  --container-padding: 1rem;
+
+  width: min(var(--max-width), 100% - (var(--container-padding)*2));
+  margin-inline: auto;
+}
+
+.padding-block-700 {
+  padding-block: var(--size-700);
+}
+
+.mb-400 {
+  margin-bottom: var(--size-400);
+}
+
+.mb-500 {
+  margin-bottom: var(--size-500);
+}
+
+.mb-600 {
+  margin-bottom: var(--size-600);
+}
+
+.mt-400 {
+  margin-top: var(--size-400);
+}
+
+.mt-500 {
+  margin-top: var(--size-500);
+}
+
+.mt-600 {
+  margin-top: var(--size-600);
+}
+
+.mr-400 {
+  margin-right: var(--size-400);
+}
+
+.mr-500 {
+  margin-right: var(--size-500);
+}
+
+.mr-600 {
+  margin-right: var(--size-600);
+}
+
+.ml-400 {
+  margin-left: var(--size-400);
+}
+
+.ml-500 {
+  margin-left: var(--size-500);
+}
+
+.ml-600 {
+  margin-left: var(--size-600);
+}
+
