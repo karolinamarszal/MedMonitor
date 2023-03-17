@@ -1,0 +1,32 @@
+.formContainer {
+  padding: var(--size-400) var(--size-200);
+}
+
+.inputContainer {
+  position: relative;
+  padding: var(--size-400) var(--size-600);
+  border: 1px solid black;
+
+  & .label {
+    position: absolute;
+    font-size: 16px;
+    line-height: 1;
+    top: 18px;
+    min-height: 8px;
+    transition: .3s cubic-bezier(.25,.8,.5,1);
+  }
+
+  & input, textarea {
+    width: 100%;
+
+    &:focus {
+      
+    }
+  }
+
+  & textarea {
+    resize: none;
+  }
+
+}
+
