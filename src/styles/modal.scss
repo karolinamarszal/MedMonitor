@@ -11,17 +11,23 @@
 }
 
 .modal-content {
-  width: 500px;
+  width: 550px;
   background-color: var(--clr-white);
 }
 
-.modal-header,
-.modal-footer {
-  padding: 10px;
+.modal-header {
+  padding: var(--size-200);
+  font-weight: var(--fw-bold);
 }
+
+.modal-footer {
+  padding: var(--size-200);
+}
+
 
 .modal-title {
   margin: 0;
+  color: var(--clr-primary);
 }
 
 .modal-body {
