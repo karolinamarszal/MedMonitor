@@ -1,32 +1,80 @@
-.formContainer {
-  padding: var(--size-400) var(--size-200);
-}
-
 .inputContainer {
   position: relative;
-  padding: var(--size-400) var(--size-600);
-  border: 1px solid black;
+  display: flex;
+  padding: var(--size-400) var(--size-400);
+  border: 1px solid var(--mediumShadow);  
+  border-radius: var(--size-200);
+
 
   & .label {
     position: absolute;
     font-size: 16px;
     line-height: 1;
+    margin-left: var(--size-600);
     top: 18px;
     min-height: 8px;
+    color: var(--mediumShadow);
     transition: .3s cubic-bezier(.25,.8,.5,1);
+
+    cursor: text;
+
+    &Active {
+      top: -7px;
+      position: absolute;
+      font-size: 10px;
+      line-height: 1;
+      min-height: 4px;
+      color: var(--clr-primary);
+      transition: .3s cubic-bezier(.25,.8,.5,1);
+      background-color: white;
+  
+      cursor: text;
+    }
+
+    &BlurredWithValue {
+      top: -7px;
+      position: absolute;
+      font-size: 10px;
+      margin-left: 0;
+      line-height: 1;
+      min-height: 4px;
+      color: var(--mediumShadow);
+      transition: .3s cubic-bezier(.25,.8,.5,1);
+      background-color: white;
+  
+      cursor: text;
+    }
   }
+
 
   & input, textarea {
     width: 100%;
-
-    &:focus {
-      
-    }
+    margin-left: var(--size-400);
   }
+
 
   & textarea {
     resize: none;
   }
 
+  &Active {
+    border-color: var(--clr-primary);
+  }
+
+  & .iconForm {
+    border-right: 1px solid var(--mediumShadow);
+    padding-right: var(--size-200);
+    color: var(--clr-neutral-900);
+
+    &Active {
+      color: var(--clr-primary);
+    }
+    
+    svg {
+      display: inline;
+    }
+  }
+
 }
+
 
