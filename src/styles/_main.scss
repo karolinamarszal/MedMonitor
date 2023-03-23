@@ -4,6 +4,8 @@
 @use "./navbar";
 @use "./modal";
 @use "./form";
+@use "./table";
+@use "./buttons";
 
 //general style
 
@@ -38,6 +40,16 @@ ul {
 a {
   text-decoration: none;
   color: var(--clr-neutral-900);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: var(--size-800);
+}
+
+.contentContainer {
+  width: 85%;
 }
 
 
