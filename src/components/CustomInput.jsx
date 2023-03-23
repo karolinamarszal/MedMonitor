@@ -10,14 +10,20 @@ const CustomInput = (props) => {
   const inputRef = useRef(null);
 
   const handleClick = () => {
-    setIsClicked(true);
+    console.log(inputRef.current)
     inputRef.current.focus();
-    console.log(inputRef);
+    inputRef.current.showPicker();
   }
-
+  
   const handleBlur = () => {
     setIsClicked(false)
   }
+  
+  const handleInputOnFocus = () => {
+    setIsClicked(true);
+    inputRef.current.showPicker();
+  }
+
 
   return (
     <div 
@@ -25,24 +31,36 @@ const CustomInput = (props) => {
       onClick={handleClick}
       onBlur={handleBlur}
     >
-      {props.icon && <i className="iconForm">{props.icon}</i>}
+      {props.icon && <i 
+      className={classNames({
+        "iconForm": !isClicked,
+        "iconFormActive iconForm": isClicked,
+      })}
+      >
+        {props.icon}
+      </i>}
       <label 
         htmlFor={uId}
         className={classNames({
-          "labelTop": !!props.value && !isClicked,
+          "labelBlurredWithValue": !!props.value && !isClicked,
           "labelActive": isClicked,
           "label": !isClicked,
+          "hidden": !props.value && !isClicked && props.type=== "date",
         })} 
       >
         {props.label}
       </label>
       <input 
         type={props.type} 
+        className={classNames({
+          "hidden": props.type === "file",
+        })}
         id={uId} 
         value={props.value} 
         onChange={props.onChange} 
         name={props.name}
         ref={inputRef}
+        onFocus={handleInputOnFocus}
       />
     </div>
   );
