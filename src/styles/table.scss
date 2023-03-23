@@ -1,0 +1,32 @@
+
+
+.tableContainer {
+  padding: var(--size-500) 0;
+}
+
+.appointmentsTable {
+  border-collapse: collapse;
+  width: 100%;
+
+
+  & td, th {
+    border: 1px solid var(--mediumShadow);
+    padding: var(--size-300);
+  }
+
+  & tr:hover {
+    background-color: var(--neutralShadow);
+  }
+
+  & th {
+    text-align: left;
+    font-weight: var(--fw-semi-bold);
+    background-color: var(--clr-primary);
+    color: white;
+  }
+  
+}
+
+.tableCenter {
+  text-align: center;
+}
