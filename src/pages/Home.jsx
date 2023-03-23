@@ -5,9 +5,8 @@ import Appointments from "../components/Appointments"
 const Home = () => {
 
   return (
-    <div>
+    <div className="container">
       <Appointments />
-      <h2>test</h2>
     </div>
   )
 }
