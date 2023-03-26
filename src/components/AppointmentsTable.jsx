@@ -5,13 +5,18 @@ import { AppointmentsContext } from "../context/AppointmentsContext";
 
 const AppointmentsTable = () => {
 
-  const { appointments, setShowAppointmentForm, setFormData, setEditIndex} = useContext(AppointmentsContext);
+  const { appointments, setAppointments, setShowAppointmentForm, setFormData, setEditIndex} = useContext(AppointmentsContext);
 
   const handleEditAppointmentClick = (item, index) => {
     setShowAppointmentForm(true);
     setFormData(item);
     setEditIndex(index);
   }
+
+  const removeAppointment = (deletingItemIndex) => {
+    setAppointments(appointments.filter((appointment, index) => index !== deletingItemIndex)) 
+  }
+ 
 
   return (
     <div className="tableContainer">
@@ -49,7 +54,7 @@ const AppointmentsTable = () => {
                     <button type="button" className="editButton" onClick={()=>handleEditAppointmentClick(appointment, index)}><FaEdit/></button>
                   </td>
                   <td>
-                    <button type="button" className="deleteButton"><FaTrashAlt /></button>
+                    <button type="button" className="deleteButton" onClick={()=>removeAppointment(index)}><FaTrashAlt /></button>
                   </td>
                 </tr>                
               )
