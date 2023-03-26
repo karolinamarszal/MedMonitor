@@ -4,12 +4,8 @@ export const AppointmentsContext = createContext(null)
 
 export const AppointmentsContextProvider = ({ children }) => {
   const [showAppointmentForm, setShowAppointmentForm] = useState(false); 
-  const [appointments, setAppointments] = useState([{
-    appointmentType: {value:"lol", error: null}, 
-    description: {value:"jij", error: null}, 
-    date: {value:"okk", error: null}, 
-    addFile: {value: "", error: null}
-  }]);
+  const [appointments, setAppointments] = useState([]);
+  
   const initialFormData = {appointmentType: {value:"", error: null}, description: {value:"", error: null}, date: {value:"", error: null}, addFile: {value:"", error: null}};
   const [formData, setFormData] = useState(initialFormData);
   const [ editIndex, setEditIndex ] = useState(-1);
@@ -35,8 +31,10 @@ export const AppointmentsContextProvider = ({ children }) => {
     setShowAppointmentForm(false);
   }
 
+
   const value = {
     appointments,
+    setAppointments,
     unshiftToAppointments,
     showAppointmentForm,
     setShowAppointmentForm,
