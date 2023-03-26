@@ -5,8 +5,13 @@ import { AppointmentsContext } from "../context/AppointmentsContext";
 
 const AppointmentsTable = () => {
 
-  const { appointments} = useContext(AppointmentsContext);
+  const { appointments, setShowAppointmentForm, setFormData, setEditIndex} = useContext(AppointmentsContext);
 
+  const handleEditAppointmentClick = (item, index) => {
+    setShowAppointmentForm(true);
+    setFormData(item);
+    setEditIndex(index);
+  }
 
   return (
     <div className="tableContainer">
@@ -41,10 +46,10 @@ const AppointmentsTable = () => {
                     {appointment.addFile.value}
                   </td>
                   <td>
-                    <i className="editButton"><FaEdit/></i>
+                    <button type="button" className="editButton" onClick={()=>handleEditAppointmentClick(appointment, index)}><FaEdit/></button>
                   </td>
                   <td>
-                    <i className="deleteButton"><FaTrashAlt /></i>
+                    <button type="button" className="deleteButton"><FaTrashAlt /></button>
                   </td>
                 </tr>                
               )
