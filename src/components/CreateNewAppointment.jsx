@@ -5,15 +5,16 @@ import CustomInput from "./CustomInput"
 import CustomTextarea from "./CustomTextarea"
 import { AppointmentsContext } from "../context/AppointmentsContext";
 
-const CreateAppointment = props => {
+const CreateAppointment = () => {
 
-  const { unshiftToAppointments} = useContext(AppointmentsContext);
-
-  const [show, setShow] = useState(false)
-  
-  const initialFormData = {appointmentType: {value:"", error: null}, description: {value:"", error: null}, date: {value:"", error: null}, addFile: {value:"", error: null}};
-
-  const [formData, setFormData] = useState(initialFormData);
+  const {
+    showAppointmentForm, 
+    setShowAppointmentForm, 
+    formData, setFormData, 
+    initialFormData, 
+    handleSubmit,
+    setEditIndex,
+  } = useContext(AppointmentsContext);
 
   
 
@@ -31,30 +32,24 @@ const CreateAppointment = props => {
   };
 
   const closeModal = () => {
-    setShow(false);
+    setShowAppointmentForm(false);
   }
 
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("hello")
-    if(!formData.appointmentType.value){
-      formData.appointmentType.error = "This field is required"
-    }
-    // alert(`Appointment type: ${formData.appointmentType.value}, Description: ${formData.description.value}, Date: ${formData.date.value}`);
-    unshiftToAppointments(formData);
-    setShow(false);
+  const handleNewAppointmentBtnClick = () => {
+    setEditIndex(-1);
+    setShowAppointmentForm(true);
     setFormData(initialFormData);
-  };
+  }
 
 
 
   return (
     <div>
       <div className="buttonContainer">
-        <button className="buttonAdd" onClick={() => setShow(true)}><i className="mr-400"><FaPlus/></i><span>Add appointment</span></button>
+        <button className="buttonAdd" onClick={handleNewAppointmentBtnClick}><i className="mr-400"><FaPlus/></i><span>Add appointment</span></button>
       </div>
-      <Modal title="Add new appointment" onClose={closeModal} onSubmit={handleSubmit} show={show}>
+      <Modal title="Add new appointment" onClose={closeModal} onSubmit={handleSubmit} show={showAppointmentForm}>
         <form>
             <CustomInput 
               label="Appointment type" 
