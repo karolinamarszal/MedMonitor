@@ -5,16 +5,25 @@ import { AppointmentsContext } from "../context/AppointmentsContext";
 
 const AppointmentsTable = () => {
 
-  const { appointments, setAppointments, setShowAppointmentForm, setFormData, setEditIndex} = useContext(AppointmentsContext);
+  const { 
+    appointments, 
+    setAppointments, 
+    setShowAppointmentForm, 
+    setFormData, 
+    setEditIndex, 
+    showAlert
+  } = useContext(AppointmentsContext);
 
   const handleEditAppointmentClick = (item, index) => {
     setShowAppointmentForm(true);
+    showAlert(false, "", "");
     setFormData(item);
     setEditIndex(index);
   }
 
   const removeAppointment = (deletingItemIndex) => {
     setAppointments(appointments.filter((appointment, index) => index !== deletingItemIndex)) 
+    showAlert(true, "danger", "Appointment removed")
   }
  
 
