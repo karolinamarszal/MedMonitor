@@ -3,6 +3,11 @@
   --clr-accent-400: #2F68C4;
   --clr-accent-300: #629BF7;
   --clr-accent-300: #9CC0FA;
+
+  --clr-alert-success-light: #d4edda;
+  --clr-alert-success-dark: #155724;
+  --clr-alert-danger-light: #f8d7da;
+  --clr-alert-danger-dark: #721c24;
   
   --clr-primary: #3B82F6;
 
@@ -33,6 +38,7 @@
   --fs-800: 2.5rem;
   --fs-900: 3.5rem;
 
+
   --fs-body: var(--fs-400);
   --fs-primary-heading: var(--fs-800);
   --fs-secondary-heading: var(--fs-700);
@@ -48,6 +54,7 @@
   --size-700: 3rem;
   --size-800: 4rem;
   --size-900: 5rem;
+  --size-xl: 15rem;
 }
 
 @media (min-width: 47em) {
