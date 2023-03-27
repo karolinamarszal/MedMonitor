@@ -1,0 +1,21 @@
+.alert {
+  margin-right: var(--size-xl);
+  border-radius: var(--size-100);
+  padding: var(--size-200) var(--size-300)
+}
+
+.alertEmptyForm {
+  margin-bottom: var(--size-300);
+}
+
+.alert-danger {
+  color: var(--clr-alert-danger-dark);
+  background-color: var(--clr-alert-danger-light);
+  border-left: 5px solid var(--clr-alert-danger-dark);
+}
+
+.alert-success {
+  color: var(--clr-alert-success-dark);
+  background-color: var(--clr-alert-success-light);
+  border-left: 5px solid var(--clr-alert-success-dark);
+}
