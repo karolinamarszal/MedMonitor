@@ -37,14 +37,14 @@ const CreateAppointment = () => {
 
   const closeModal = () => {
     setShowAppointmentForm(false);
-    showAlert(false, "", "")
+    showAlert()
   }
 
 
   const handleNewAppointmentBtnClick = () => {
     setEditIndex(-1);
     setShowAppointmentForm(true);
-    showAlert(false, "", "")
+    showAlert()
     setFormData(initialFormData);
   }
 
