@@ -1,4 +1,4 @@
-import React, { useState} from "react"
+import React from "react";
 import CreateNewAppointment from "./CreateNewAppointment"
 import AppointmentsTable from "./AppointmentsTable"
 import { AppointmentsContextProvider } from "../context/AppointmentsContext";
