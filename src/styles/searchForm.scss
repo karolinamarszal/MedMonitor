@@ -1,0 +1,17 @@
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchForm {
+  box-shadow: var(--lightShadow);
+}
+
+.formControl {
+  width: var(--size-small-width);
+  max-width: var(--size-width);
+  padding: var(--size-500);
+  background-color: white;
+}
+
