@@ -7,6 +7,7 @@
 @use "./table";
 @use "./buttons";
 @use "./alert";
+@use "./searchForm";
 
 //general style
 
@@ -46,11 +47,11 @@ a {
 .container {
   display: flex;
   justify-content: center;
-  padding: var(--size-800);
+  padding: var(--size-800) 0;
 }
 
 .contentContainer {
-  width: 85%;
+  width: 90%;
 }
 
 
