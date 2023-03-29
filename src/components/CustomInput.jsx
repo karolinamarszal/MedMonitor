@@ -27,7 +27,11 @@ const CustomInput = (props) => {
 
   return (
     <div 
-      className={`${isClicked ? "inputContainer mb-400 inputContainerActive" : "inputContainer mb-400"}`} 
+      className={classNames({
+        "inputContainer inputContainerActive": isClicked,
+        "inputContainer": !isClicked,
+        "inputContainerFullWidth": !!props.fullWidth,
+      })}
       onClick={handleClick}
       onBlur={handleBlur}
     >
