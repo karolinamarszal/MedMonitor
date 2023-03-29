@@ -20,7 +20,7 @@ export const AppointmentsContextProvider = ({ children }) => {
     msg: "",
     type: "",
   });
-  
+
   const unshiftToAppointments = () => {
     setAppointments((prevAppointments)=>{
       return [formData, ...prevAppointments]
@@ -34,7 +34,7 @@ export const AppointmentsContextProvider = ({ children }) => {
     }
     if(editIndex < 0){
       unshiftToAppointments();
-      showAlert(true, "success", "Item added to the list")
+      showAlert(true, "success", "Appointment added to the list")
     } else {
       setAppointments(appointments.map((appointment, index) => {
         if (index === editIndex) {
