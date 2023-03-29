@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react"
+import React, { useContext , useEffect, useRef} from "react"
 import { FaBriefcaseMedical, FaBookMedical, FaFileMedical, FaCalendarAlt, FaPlus } from "react-icons/fa";
 import Modal from "./Modal"
 import CustomInput from "./CustomInput"
@@ -40,7 +40,6 @@ const CreateAppointment = () => {
     showAlert()
   }
 
-
   const handleNewAppointmentBtnClick = () => {
     setEditIndex(-1);
     setShowAppointmentForm(true);
@@ -49,28 +48,45 @@ const CreateAppointment = () => {
   }
 
 
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const keyDownHandler = event => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        handleSubmit(event);
+      }
+    };
+    ref.current.addEventListener('keydown', keyDownHandler);
+
+    return () => {
+      ref.current.removeEventListener('keydown', keyDownHandler);
+    };
+  }, [showAppointmentForm]);
 
   return (
-    <div>
-      <div className="buttonContainer">
+    <div ref={ref}>
+      <div className="buttonContainer" >
         {alert.show && <Alert {...alert} removeAlert={showAlert} appointments={appointments}/>}
         <button className="buttonAdd" onClick={handleNewAppointmentBtnClick}><i className="mr-400"><FaPlus/></i><span>Add appointment</span></button>
       </div>
-      <Modal title="Add new appointment" onClose={closeModal} onSubmit={handleSubmit} show={showAppointmentForm}>
-        <form>
+      <Modal title="Add new appointment" onClose={closeModal} onSubmit={handleSubmit} show={showAppointmentForm} >
+        <form >
           <div className="alertEmptyForm">
             {alert.show && <Alert {...alert} removeAlert={showAlert} appointments={appointments}/>}
           </div>
           <CustomInput 
             label="Appointment type" 
             type="text" 
+            className="mb-400"
             icon={<FaBriefcaseMedical/>}
             name="appointmentType" 
             value={formData.appointmentType.value} 
             onChange={handleChange}
-          />
+            />
           <CustomInput 
             label="Date"
+            className="mb-400"
             icon={<FaCalendarAlt />}
             type="date"
             name="date"
@@ -79,6 +95,7 @@ const CreateAppointment = () => {
           />
           <CustomTextarea
             label="Description" 
+            className="mb-400"
             icon={<FaBookMedical/>}
             name="description" 
             value={formData.description.value} 
@@ -91,7 +108,7 @@ const CreateAppointment = () => {
             name="addFile" 
             value={formData.addFile.value} 
             onChange={handleChange}
-          />
+            />
         </form>
       </Modal>
     </div>
