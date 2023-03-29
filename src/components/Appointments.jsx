@@ -9,12 +9,8 @@ const Appointments = () => {
   return (
     <AppointmentsContextProvider>
       <div className="contentContainer">
-        <div>
-          <CreateNewAppointment />
-        </div>
-        <div>
-          <AppointmentsTable />
-        </div>
+        <CreateNewAppointment />
+        <AppointmentsTable />
       </div>
     </AppointmentsContextProvider>
   )
