@@ -12,9 +12,11 @@
   box-shadow: var(--lightShadow);
 }
 
-.nav-links a{
+.nav-links, a {
   display: flex;
   align-items: center;
+  gap: var(--size-300);
+  text-transform: uppercase;
 
   &:hover {
     color: var(--clr-primary);
