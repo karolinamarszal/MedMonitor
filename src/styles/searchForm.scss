@@ -4,14 +4,14 @@
   align-items: center;
 }
 
-.searchForm {
-  box-shadow: var(--lightShadow);
-}
-
 .formControl {
   width: var(--size-small-width);
   max-width: var(--size-width);
   padding: var(--size-500);
+}
+
+.box {
   background-color: white;
+  box-shadow: var(--lightShadow);
 }
 
