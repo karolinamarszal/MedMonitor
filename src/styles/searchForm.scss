@@ -15,3 +15,13 @@
   box-shadow: var(--lightShadow);
 }
 
+.searchList {
+  border: 1px solid var(--mediumShadow);
+  border-radius: var(--size-100);
+  cursor: pointer;
+
+  & li:hover{
+    background-color: var(--neutralShadow);
+  }
+}
+
