@@ -6,9 +6,10 @@ import { debounce } from "lodash";
 
 const SearchForm = () => {
 
-  const [medicines, setMedicines] = useState([]);
-  const [searchedMedicines, setSearchedMedicines] = useState([]);
+  // const [medicines, setMedicines] = useState([]);
+  // const [searchedMedicines, setSearchedMedicines] = useState([]);
 
+  const {searchedMedicines, setSearchedMedicines, handleMedicineSubmit} = useContext(MedicinesContext);
 
   const handleChange = debounce(async (value) => {
     if(!value){
@@ -18,8 +19,17 @@ const SearchForm = () => {
     try {
       const response = await fetch(`https://api.fda.gov/drug/drugsfda.json?search=products.brand_name:"${value}"&limit=100`);
       const data = await response.json();
+      console.log(data)
       setSearchedMedicines(data.results.map((item)=>{
-        return item.products[0].brand_name;
+        console.log(item.products[0].active_ingredients.map((item) => {
+          return item.name;
+        }).join(', '))
+        return { 
+          name: item.products[0].brand_name, 
+          activeIngredients: item.products[0].active_ingredients.map((item) => {
+            return item.name;
+          }).join(', ')
+      };
       }));
     }
     catch (err){
@@ -27,6 +37,14 @@ const SearchForm = () => {
     }
   }, 500);
 
+
+
+  // const handleMedicineSubmit = (medicine, index) => {
+  //   setMedicines(prevMedicines => [searchedMedicines[index], ...prevMedicines]);
+  //   setSearchedMedicines([])
+  //   return;
+  // }
+  
 
 
   return (
@@ -41,10 +59,10 @@ const SearchForm = () => {
             onChange={e => handleChange(e.target.value)}
           />
           {searchedMedicines.length > 0 && 
-          <ul>
-            {searchedMedicines.map((item, index)=>{
+          <ul className="searchList">
+            {searchedMedicines.map((medicine, index)=>{
               return (
-                <li key={index}>{item}</li>
+                <li key={index} onClick={()=>handleMedicineSubmit(medicine, index)}>{medicine.name}</li>
               )
             })}
           </ul>}
