@@ -10,7 +10,6 @@ const CustomInput = (props) => {
   const inputRef = useRef(null);
 
   const handleClick = () => {
-    console.log(inputRef.current)
     inputRef.current.focus();
     inputRef.current.showPicker();
   }
