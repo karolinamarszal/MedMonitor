@@ -1,7 +1,8 @@
 import React from "react";
 import CreateNewAppointment from "./CreateNewAppointment"
 import AppointmentsTable from "./AppointmentsTable"
-import { AppointmentsContextProvider } from "../context/AppointmentsContext";
+import { AppointmentsContextProvider } from "../context/AppointmentsContext"
+
 
 
 const Appointments = () => {
