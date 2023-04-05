@@ -1,17 +1,25 @@
 import React, { useContext } from "react"
 import { MedicinesContext } from "../context/MedicinesContext";
 import { FaTrashAlt } from "react-icons/fa";
+import Alert from "./Alert"
 
 const MedicineTable = () => {
 
-  const {medicines, setMedicines} = useContext(MedicinesContext);
+
+  const {medicines, setMedicines, alert, showAlert} = useContext(MedicinesContext);
 
   const removeMedicine = (medicineIndex) => {
     setMedicines(medicines.filter((medicine, index) => index !== medicineIndex))
+    showAlert(true, "danger", "Drug removed from the list")
   }
+
+
 
   return (
     <div className="tableContainer">
+      <div className="alertEmptyForm">
+        {alert.show && <Alert {...alert} removeAlert={showAlert}/>}
+      </div>
       <table className="appointmentsTable">
         <thead>
           <tr>
@@ -32,8 +40,10 @@ const MedicineTable = () => {
                   {medicine.activeIngredients}
                 </td>
                 <td>
+                  <div style={{display: "flex", justifyContent: "center", alignItems:"center"}}>
                     <button type="button" className="deleteButton" onClick={()=>removeMedicine(index)}><FaTrashAlt /></button>
-                  </td>
+                  </div>
+                </td>
               </tr>
             )
           })}      
