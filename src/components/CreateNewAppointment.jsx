@@ -24,13 +24,10 @@ const CreateAppointment = () => {
 
   const handleChange = (e) => {
     const {name, value} = e.target;
-    // console.log(name, value);
     setFormData((prevFormData) => {
-      // return { ...prevFormData, [name]: {value}};
+      // return { ...prevFormData, [name]: {value}}; to jest z destrukturyzacją
       const obj = {...prevFormData};
-      // console.log(obj, prevFormData);
       obj[name]['value'] = value;
-      // console.log(obj, obj[name], obj[name]["value"])
       return obj;
     });
   };
@@ -67,7 +64,7 @@ const CreateAppointment = () => {
   return (
     <div ref={ref}>
       <div className="buttonContainer" >
-        {alert.show && <Alert {...alert} removeAlert={showAlert} appointments={appointments}/>}
+        {alert.show && <Alert {...alert} removeAlert={showAlert}/>}
         <button className="buttonAdd" onClick={handleNewAppointmentBtnClick}><i className="mr-400"><FaPlus/></i><span>Add appointment</span></button>
       </div>
       <Modal title="Add new appointment" onClose={closeModal} onSubmit={handleSubmit} show={showAppointmentForm} >
