@@ -3,6 +3,7 @@ import SearchForm from "./SearchForm"
 import MedicineTable from "./MedicineTable"
 import { MedicinesContextProvider } from "../context/MedicinesContext"
 
+
 const Medicines = () => {
 
   return (
