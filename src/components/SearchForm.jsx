@@ -1,4 +1,4 @@
-import React, { useContext, useState, useCallback} from "react"
+import React, { useContext, useState, useCallback, useEffect} from "react"
 import { FaSearch } from "react-icons/fa";
 import CustomInput from "./CustomInput";
 import { MedicinesContext } from "../context/MedicinesContext";
@@ -7,10 +7,14 @@ import { debounce } from "lodash";
 
 const SearchForm = () => {
   
-  const {setMedicines, searchedMedicines, setSearchedMedicines} = useContext(MedicinesContext);
-  const { showAlert } = useContext(AppointmentsContext);
+  const [searchValue, setSearchValue] = useState('');
+  const {showAlert, setMedicines, searchedMedicines, setSearchedMedicines} = useContext(MedicinesContext);
 
-  const handleChange = debounce(async (value) => {
+  useEffect(() => {
+    fetchMedicines(searchValue);
+  }, [searchValue])
+
+  const fetchMedicines = useCallback(debounce(async (value) => {
     if(!value){
       setSearchedMedicines([])
       return
@@ -31,12 +35,13 @@ const SearchForm = () => {
     catch (err){
       console.log(err)
     }
-  }, 400);
+  }, 400), []);
 
   const handleMedicineSubmit = (medicine, index) => {
     setMedicines(prevMedicines => [searchedMedicines[index], ...prevMedicines]);
     setSearchedMedicines([])
     showAlert(true, "success", "Drug added to the list")
+    setSearchValue(''); 
     return;
   }
 
@@ -45,12 +50,13 @@ const SearchForm = () => {
     <section className="searchContainer">
       <form className="formControl">
           <CustomInput 
+            value={searchValue}
             label="Search Drug" 
             fullWidth={true}
             type="text" 
             icon={<FaSearch />}
             name="searchDrug" 
-            onChange={e => handleChange(e.target.value)}
+            onChange={(e)=> setSearchValue(e.target.value)}
           />
           {searchedMedicines.length > 0 && 
           <ul className="searchList">
