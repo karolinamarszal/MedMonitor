@@ -1,5 +1,6 @@
 .logo {
   width: 3.7rem;
+  margin-right: var(--size-300);
 }
 
 .navbar {
@@ -21,4 +22,9 @@
   &:hover {
     color: var(--clr-primary);
   }
+}
+
+.name {
+  margin-right: auto;
+  font-weight: var(--fw-semi-bold);
 }
