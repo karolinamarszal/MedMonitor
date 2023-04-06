@@ -8,6 +8,7 @@ const Navbar = () => {
       <div className="navbar">
         <Link to="/">
           <img src={logo} alt="medmonitor logo" className="logo"/>
+          <h2 className="name">MEDMONITOR</h2>
         </Link>
         <div className="nav-links">
           <Link to="/">
