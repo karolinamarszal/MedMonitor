@@ -9,8 +9,7 @@ export const AppointmentsContextProvider = ({ children }) => {
   const initialFormData = {
     appointmentType: {value:"", error: null}, 
     description: {value:"", error: null}, 
-    date: {value:"", error: null}, 
-    addFile: {value:"", error: null}
+    date: {value:"", error: null},
   };
 
   const [formData, setFormData] = useState(initialFormData);
