@@ -1,5 +1,5 @@
 import React, { useContext , useEffect, useRef} from "react"
-import { FaBriefcaseMedical, FaBookMedical, FaFileMedical, FaCalendarAlt, FaPlus } from "react-icons/fa";
+import { FaBriefcaseMedical, FaBookMedical, FaCalendarAlt, FaPlus } from "react-icons/fa";
 import Modal from "./Modal"
 import CustomInput from "./CustomInput"
 import CustomTextarea from "./CustomTextarea"
@@ -57,7 +57,7 @@ const CreateAppointment = () => {
     ref.current.addEventListener('keydown', keyDownHandler);
 
     return () => {
-      ref.current.removeEventListener('keydown', keyDownHandler);
+      ref.current?.removeEventListener('keydown', keyDownHandler);
     };
   }, [showAppointmentForm]);
 
@@ -98,14 +98,6 @@ const CreateAppointment = () => {
             value={formData.description.value} 
             onChange={handleChange}
           />
-          <CustomInput 
-            label="Add file" 
-            type="file" 
-            icon={<FaFileMedical/>}
-            name="addFile" 
-            value={formData.addFile.value} 
-            onChange={handleChange}
-            />
         </form>
       </Modal>
     </div>
