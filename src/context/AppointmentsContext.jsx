@@ -1,10 +1,21 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 
 export const AppointmentsContext = createContext(null)
 
+const getLocalStorage = ()=> {
+  let appointments = localStorage.getItem("appointments");
+  if(appointments){
+    return JSON.parse(localStorage.getItem("appointments"))
+  } 
+  else {
+    return []
+  }
+}
+
+
 export const AppointmentsContextProvider = ({ children }) => {
   const [showAppointmentForm, setShowAppointmentForm] = useState(false); 
-  const [appointments, setAppointments] = useState([]);
+  const [appointments, setAppointments] = useState(getLocalStorage([]));
 
   const initialFormData = {
     appointmentType: {value:"", error: null}, 
@@ -49,6 +60,10 @@ export const AppointmentsContextProvider = ({ children }) => {
   const showAlert = (show=false, type="", msg="")=>{
     setAlert({show, type, msg})
   }
+
+  useEffect(()=> {
+    localStorage.setItem("appointments", JSON.stringify(appointments))
+  }, [appointments])
 
   const value = {
     appointments,
