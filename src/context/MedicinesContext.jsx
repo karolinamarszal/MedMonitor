@@ -1,12 +1,22 @@
-import React, { useState, createContext } from "react";
+import React, { useState, useEffect, createContext } from "react";
 
 
 
 export const MedicinesContext = createContext(null);
 
+const getLocalStorage = ()=> {
+  let medicines = localStorage.getItem("medicines");
+  if(medicines){
+    return JSON.parse(localStorage.getItem("medicines"))
+  } 
+  else {
+    return []
+  }
+}
+
 export const MedicinesContextProvider = ({ children }) => {
 
-  const [medicines, setMedicines] = useState([]);
+  const [medicines, setMedicines] = useState(getLocalStorage([]));
   const [searchedMedicines, setSearchedMedicines] = useState([]);
 
   const [alert, setAlert] = useState({
@@ -18,6 +28,10 @@ export const MedicinesContextProvider = ({ children }) => {
   const showAlert = (show=false, type="", msg="")=>{
     setAlert({show, type, msg})
   }
+
+  useEffect(()=> {
+    localStorage.setItem("medicines", JSON.stringify(medicines))
+  }, [medicines])
 
   const value = {
     medicines,
