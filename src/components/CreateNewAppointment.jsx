@@ -64,7 +64,9 @@ const CreateAppointment = () => {
   return (
     <div ref={ref}>
       <div className="buttonContainer" >
-        {alert.show && <Alert {...alert} removeAlert={showAlert}/>}
+        <div className="alertMargin">
+          {alert.show && <Alert {...alert} className="danger" removeAlert={showAlert}/>}
+        </div>
         <button className="buttonAdd" onClick={handleNewAppointmentBtnClick}><i className="mr-400"><FaPlus/></i><span>Add appointment</span></button>
       </div>
       <Modal title="Add new appointment" onClose={closeModal} onSubmit={handleSubmit} show={showAppointmentForm} >
