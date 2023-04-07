@@ -9,7 +9,7 @@ const Alert = ({type, msg, removeAlert}) => {
   }, [])
 
   return (
-    <p className={`alert alert-${type}`}>{msg}</p>
+      <p className={`alert alert-${type}`}>{msg}</p>
   )
 }
 
