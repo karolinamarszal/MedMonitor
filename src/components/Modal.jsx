@@ -1,23 +1,23 @@
 import React from "react"
 
 
-const Modal = props => {
-  if (!props.show) {
+const Modal = ({show, onClose, title, children, onSubmit}) => {
+  if (!show) {
     return null
   }
 
 
   return (
-    <div className="modal" onClick={props.onClose}>
+    <div className="modal" onClick={onClose}>
       <div className="modal-content" onClick={e => e.stopPropagation()}>
         <div className="modal-header">
-          <h4 className="modal-title">{props.title}</h4>
+          <h4 className="modal-title">{title}</h4>
         </div>
         <div className="modal-body">
-          {props.children}
+          {children}
         </div>
         <div className="modal-footer">
-          <button onClick={props.onSubmit} className="button">Submit</button>
+          <button onClick={onSubmit} className="button">Submit</button>
         </div>
       </div>
     </div>
