@@ -9,7 +9,7 @@ const Appointments = () => {
 
   return (
     <AppointmentsContextProvider>
-      <div className="contentContainer">
+      <div className="contentContainer box">
         <CreateNewAppointment />
         <AppointmentsTable />
       </div>
