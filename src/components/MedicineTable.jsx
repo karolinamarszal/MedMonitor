@@ -17,7 +17,7 @@ const MedicineTable = () => {
 
   return (
     <div className="tableContainer">
-      <div className="alertEmptyForm">
+      <div className="alertEmptyForm alertMargin">
         {alert.show && <Alert {...alert} removeAlert={showAlert}/>}
       </div>
       <table className="appointmentsTable">
