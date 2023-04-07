@@ -3,7 +3,8 @@ import { uniqueId } from "lodash";
 import classNames from "../utils/helpers"
 
 
-const CustomInput = (props) => {
+const CustomInput = ({className, icon, fullWidth, value, type, label, onChange, name}) => {
+  
   const uId = uniqueId();
 
   const [isClicked, setIsClicked] = useState(false);
@@ -25,44 +26,44 @@ const CustomInput = (props) => {
 
 
   return (
-    <div className={props.className}>
+    <div className={className}>
       <div 
         className={classNames({
           "inputContainer inputContainerActive": isClicked,
           "inputContainer": !isClicked,
-          "inputContainerFullWidth": !!props.fullWidth,
+          "inputContainerFullWidth": !!fullWidth,
         })}
         onClick={handleClick}
         onBlur={handleBlur}
       >
-        {props.icon && <i 
+        {icon && <i 
         className={classNames({
           "iconForm": !isClicked,
           "iconFormActive iconForm": isClicked,
         })}
         >
-          {props.icon}
+          {icon}
         </i>}
         <label 
           htmlFor={uId}
           className={classNames({
-            "labelBlurredWithValue": !!props.value && !isClicked,
+            "labelBlurredWithValue": !!value && !isClicked,
             "labelActive": isClicked,
             "label": !isClicked,
-            "hidden": !props.value && !isClicked && props.type=== "date",
+            "hidden": !value && !isClicked && type=== "date",
           })} 
         >
-          {props.label}
+          {label}
         </label>
         <input 
-          type={props.type} 
+          type={type} 
           className={classNames({
-            "hidden": props.type === "file",
+            "hidden": type === "file",
           })}
           id={uId} 
-          value={props.value} 
-          onChange={props.onChange} 
-          name={props.name}
+          value={value} 
+          onChange={onChange} 
+          name={name}
           ref={inputRef}
           onFocus={handleInputOnFocus}
         />
