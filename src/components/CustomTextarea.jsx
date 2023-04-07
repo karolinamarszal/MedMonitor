@@ -3,7 +3,7 @@ import { uniqueId } from "lodash";
 import classNames from "../utils/helpers"
 
 
-const CustomInput = (props) => {
+const CustomInput = ({icon, value, label, onChange, name}) => {
   const uId = uniqueId();
 
   const [isClicked, setIsClicked] = useState(false);
@@ -23,28 +23,28 @@ const CustomInput = (props) => {
       onClick={handleClick}
       onBlur={handleBlur}
     >
-      {props.icon && <i className={classNames({
+      {icon && <i className={classNames({
         "iconForm": !isClicked,
         "iconFormActive iconForm": isClicked,
       })}
       >
-        {props.icon}
+        {icon}
       </i>}
       <label 
         htmlFor={uId}
         className={classNames({
-          "labelBlurredWithValue": !!props.value && !isClicked,
+          "labelBlurredWithValue": !!value && !isClicked,
           "labelActive": isClicked,
           "label": !isClicked,
         })} 
       >
-        {props.label}
+        {label}
       </label>
       <textarea 
         id={uId} 
-        value={props.value} 
-        onChange={props.onChange} 
-        name={props.name}
+        value={value} 
+        onChange={onChange} 
+        name={name}
         ref={inputRef}
         onFocus={()=> setIsClicked(true)}
       />
