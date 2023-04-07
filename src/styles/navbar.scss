@@ -28,3 +28,20 @@
   margin-right: auto;
   font-weight: var(--fw-semi-bold);
 }
+
+@media (max-width: 47em) {
+  .name {
+    display: none;
+  }
+
+	
+}
+
+
+.navItem { 
+  color: black;
+  
+  &.active {
+    color: var(--clr-primary);
+  }
+}
