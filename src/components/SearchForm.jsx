@@ -2,7 +2,6 @@ import React, { useContext, useState, useCallback, useEffect} from "react"
 import { FaSearch } from "react-icons/fa";
 import CustomInput from "./CustomInput";
 import { MedicinesContext } from "../context/MedicinesContext";
-import { AppointmentsContext } from "../context/AppointmentsContext";
 import { debounce } from "lodash";
 
 const SearchForm = () => {
