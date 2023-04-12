@@ -21,20 +21,31 @@ const SearchForm = () => {
     try {
       const response = await fetch(`https://api.fda.gov/drug/drugsfda.json?search=products.brand_name:"${value}"&limit=100`);
       const data = await response.json();
-      console.log(data)
+      console.log('fetched data', data);
       setSearchedMedicines(data.results.map((item)=>{
-        return { 
+        const obj = { 
           name: item.products[0].brand_name, 
           activeIngredients: item.products[0].active_ingredients.map((item) => {
             return item.name;
-          }).join(', ')
-      };
+          }).join(', '),
+          marketingStatus: item.products[0].marketing_status,
+        };
+        if (item.openfda) {
+          obj['manufacturer'] = item.openfda.manufacturer_name.map((item)=> {
+            return item;
+          }).join(', ');
+          obj['productType'] = item.openfda.product_type.map((item)=> {
+            return item;
+          }).join('');
+        }
+        return obj;
       }));
     }
     catch (err){
       console.log(err)
     }
   }, 400), []);
+  console.log(searchedMedicines);
 
   const handleMedicineSubmit = (medicine, index) => {
     setMedicines(prevMedicines => [searchedMedicines[index], ...prevMedicines]);
