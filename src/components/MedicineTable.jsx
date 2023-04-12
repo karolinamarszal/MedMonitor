@@ -25,11 +25,12 @@ const MedicineTable = () => {
           <tr>
             <th scope="col">Medicine</th>
             <th scope="col">Active ingredients</th>
+            <th scope="col">Additional info</th>
             <th scope="col">Remove drug</th>
           </tr>
         </thead>
         <tbody>
-          {medicines.length === 0 && <tr><td colSpan="3" className="tableCenter">No drugs yet</td></tr>}
+          {medicines.length === 0 && <tr><td colSpan="4" className="tableCenter">No drugs yet</td></tr>}
           {medicines.map((medicine, index) => {
             return (
               <tr key={index}>
@@ -38,6 +39,11 @@ const MedicineTable = () => {
                 </td>
                 <td>
                   {medicine.activeIngredients}
+                </td>
+                <td>
+                  { medicine.marketingStatus }
+                  { medicine.manufacturer && `, ${medicine.manufacturer}, ` } 
+                  { medicine.productType && medicine.productType }
                 </td>
                 <td>
                   <div style={{display: "flex", justifyContent: "center", alignItems:"center"}}>
