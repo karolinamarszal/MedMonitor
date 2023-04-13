@@ -21,7 +21,6 @@ const SearchForm = () => {
     try {
       const response = await fetch(`https://api.fda.gov/drug/drugsfda.json?search=products.brand_name:"${value}"&limit=100`);
       const data = await response.json();
-      console.log('fetched data', data);
       setSearchedMedicines(data.results.map((item)=>{
         const obj = { 
           name: item.products[0].brand_name, 
@@ -45,7 +44,6 @@ const SearchForm = () => {
       console.log(err)
     }
   }, 400), []);
-  console.log(searchedMedicines);
 
   const handleMedicineSubmit = (medicine, index) => {
     setMedicines(prevMedicines => [searchedMedicines[index], ...prevMedicines]);

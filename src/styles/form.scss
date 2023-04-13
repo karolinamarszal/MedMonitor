@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   padding: var(--size-400) var(--size-400);
-  border: 1px solid var(--mediumShadow);  
+  border: 1px solid var(--medium-shadow);  
   border-radius: var(--size-200);
 
 
@@ -13,7 +13,7 @@
     margin-left: var(--size-600);
     top: 18px;
     min-height: 8px;
-    color: var(--mediumShadow);
+    color: var(--medium-shadow);
     transition: .3s cubic-bezier(.25,.8,.5,1);
 
     cursor: text;
@@ -38,7 +38,7 @@
       margin-left: 0;
       line-height: 1;
       min-height: 4px;
-      color: var(--mediumShadow);
+      color: var(--medium-shadow);
       transition: .3s cubic-bezier(.25,.8,.5,1);
       background-color: white;
   
@@ -62,7 +62,7 @@
   }
 
   & .iconForm {
-    border-right: 1px solid var(--mediumShadow);
+    border-right: 1px solid var(--medium-shadow);
     padding-right: var(--size-200);
     color: var(--clr-neutral-900);
 

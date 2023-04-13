@@ -12,16 +12,16 @@
 
 .box {
   background-color: white;
-  box-shadow: var(--lightShadow);
+  box-shadow: var(--light-shadow);
 }
 
 .searchList {
-  border: 1px solid var(--mediumShadow);
+  border: 1px solid var(--medium-shadow);
   border-radius: var(--size-100);
   cursor: pointer;
 
   & li:hover{
-    background-color: var(--neutralShadow);
+    background-color: var(--neutral-shadow);
   }
 }
 

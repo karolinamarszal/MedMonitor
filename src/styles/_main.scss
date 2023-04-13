@@ -8,6 +8,7 @@
 @use "./buttons";
 @use "./alert";
 @use "./searchForm";
+@use "./chip";
 
 //general style
 
@@ -45,13 +46,12 @@ a {
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  padding: var(--size-800) 0;
+  width: 100%;
+  margin: 0;
+  padding: 3rem;
 }
 
 .contentContainer {
-  width: 95%;
   padding: var(--size-600);
 }
 

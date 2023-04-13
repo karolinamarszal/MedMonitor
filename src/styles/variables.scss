@@ -1,7 +1,6 @@
 :root {
   --clr-accent-500: #234E93;
   --clr-accent-400: #2F68C4;
-  --clr-accent-300: #629BF7;
   --clr-accent-300: #9CC0FA;
 
   --clr-alert-success-light: #d4edda;
@@ -19,9 +18,9 @@
 
   --ff-primary: 'Be Vietnam Pro', sans-serif;
 
-  --neutralShadow: #ddd;
-  --lightShadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --mediumShadow: #00000059;
+  --neutral-shadow: #ddd;
+  --light-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --medium-shadow: #00000059;
 
   --ff-body: var(--ff-primary);
   --ff-heading: var(--ff-primary);
@@ -44,6 +43,7 @@
   --fs-nav: var(--fs-500);
   --fs-button: var(--fs-300);
 
+  --size-50: .15rem;
   --size-100: .25rem;
   --size-200: .5rem;
   --size-300: .75rem;

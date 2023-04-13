@@ -10,12 +10,12 @@
 
 
   & td, th {
-    border: 1px solid var(--mediumShadow);
+    border: 1px solid var(--medium-shadow);
     padding: var(--size-300);
   }
 
   & tr:hover {
-    background-color: var(--neutralShadow);
+    background-color: var(--neutral-shadow);
   }
 
   & th {

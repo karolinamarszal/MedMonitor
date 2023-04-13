@@ -17,7 +17,7 @@ const MedicineTable = () => {
 
   return (
     <div className="tableContainer">
-      <div className="alertEmptyForm alertMargin">
+      <div className="alertEmptyForm alertMargin alertMarginLeft">
         {alert.show && <Alert {...alert} removeAlert={showAlert}/>}
       </div>
       <table className="appointmentsTable">
@@ -41,9 +41,11 @@ const MedicineTable = () => {
                   {medicine.activeIngredients}
                 </td>
                 <td>
-                  { medicine.marketingStatus }
-                  { medicine.manufacturer && `, ${medicine.manufacturer}, ` } 
-                  { medicine.productType && medicine.productType }
+                  <div className="chip marketing">
+                    { medicine.marketingStatus }
+                  </div>
+                  { medicine.manufacturer && <div className="chip manufacturer">{ medicine.manufacturer }</div>} 
+                  { medicine.productType && <div className="chip product"> { medicine.productType}</div> }
                 </td>
                 <td>
                   <div style={{display: "flex", justifyContent: "center", alignItems:"center"}}>

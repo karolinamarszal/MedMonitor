@@ -64,7 +64,7 @@ const CreateAppointment = () => {
   return (
     <div ref={ref}>
       <div className="buttonContainer" >
-        <div className="alertMargin">
+        <div className="alertMargin alertCentered">
           {alert.show && <Alert {...alert} className="danger" removeAlert={showAlert}/>}
         </div>
         <button className="buttonAdd" onClick={handleNewAppointmentBtnClick}><i className="mr-400"><FaPlus/></i><span>Add appointment</span></button>
