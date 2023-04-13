@@ -42,6 +42,9 @@ export const AppointmentsContextProvider = ({ children }) => {
     if(!formData.appointmentType.value){
       return showAlert(true, "danger", "Please enter appointment")
     }
+    if(!formData.date.value){
+      return showAlert(true, "danger", "Please enter date")
+    }
     if(editIndex < 0){
       unshiftToAppointments();
       showAlert(true, "success", "Appointment added to the list")
