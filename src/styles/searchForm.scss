@@ -16,6 +16,8 @@
 }
 
 .searchList {
+  max-height: var(--size-1000);
+  overflow-y: auto;
   border: 1px solid var(--medium-shadow);
   border-radius: var(--size-100);
   cursor: pointer;
