@@ -1,5 +1,5 @@
 # MedMonitor 
-MedMonitor allows you to store information about your medical appointments in once place. Moreover, it allows to search information about drugs. **[Live Demo](https://fascinating-cheesecake-1b8359.netlify.app)**
+MedMonitor allows you to store information about your medical appointments in one place. Moreover, it allows to search information about drugs. **[Live Demo](https://fascinating-cheesecake-1b8359.netlify.app)**
 
 <img src="https://user-images.githubusercontent.com/106275517/231874019-c0862a6d-dfb1-49a1-aef2-a6defaacaedf.jpg" width="400"> <img src="https://user-images.githubusercontent.com/106275517/231874024-466c4a08-5398-4521-afae-3f8e69da9d4e.jpg" width="400"> <img src="https://user-images.githubusercontent.com/106275517/231874022-e28e331f-cc10-4dbc-ae26-ac366da8ea11.jpg" width="400"> <img src="https://user-images.githubusercontent.com/106275517/231874023-754fb76e-4aa5-44e5-8be5-af0a42284852.jpg" width="400">
 
