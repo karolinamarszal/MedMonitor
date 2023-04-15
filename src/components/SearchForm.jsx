@@ -71,7 +71,7 @@ const SearchForm = () => {
             {searchedMedicines.map((medicine, index)=>{
               return (
                 <li key={index} onClick={()=>handleMedicineSubmit(medicine, index)}>{medicine.name}</li>
-              )
+              ) 
             })}
           </ul>}
       </form>
